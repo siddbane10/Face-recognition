@@ -11,21 +11,19 @@ name=raw_input("Enter your name ")
 
 while True:
     
-    ret, im = cam.read()
+    ret, im =cam.read()
+    #print im
     
     #print im
     #im = cv2.cv.QueryFrame(cam)
     gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
-    cv2.imshow('input',im)
-    cv2.waitKey(0)
+    cv2.imshow('input',gray)
+    cv2.waitKey(1)
     faces=detector.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=8, minSize=(100,100), flags=cv2.CASCADE_SCALE_IMAGE)
-    print faces
-    for j in faces:
-        x=j[0]
-        y=j[1]
-        w=j[2]
-        h=j[3]
-        
+    #print faces
+    
+    for (x,y,w,h) in faces:
+      
         i=i+1
         cv2.imwrite(dir+"/dataSet/face-"+name +'.'+ str(i) + ".jpg", gray[y-offset:y+h+offset,x-offset:x+w+offset])
         cv2.rectangle(im,(x-50,y-50),(x+w+50,y+h+50),(225,0,0),2)
