@@ -1,2 +1,2 @@
 # Face-recognition
-Using this to push modules to access remotely.
+Python script to recognise people's faces using OpenCV
