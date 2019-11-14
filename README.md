@@ -1,2 +1,2 @@
 # Face-recognition
-Python script to recognise people's faces using OpenCV
+Python based project to recognise people's faces using OpenCV
